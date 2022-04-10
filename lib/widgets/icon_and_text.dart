@@ -20,6 +20,7 @@ class IconAndTExtWidget extends StatelessWidget {
         Icon(
           icon,
           color: iconColor,
+          size: Dimensions.iconSize24
         ),
         SizedBox(
           width: 5,

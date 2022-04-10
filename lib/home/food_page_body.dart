@@ -41,6 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //slider section
         Container(
           // color: Colors.redAccent,
           height: Dimensions.pageView,
@@ -51,6 +52,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildPageItem(position);
               }),
         ),
+        //dots
         new DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
@@ -62,8 +64,61 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         )
+        SizedBox(height: Dimensions.height30,),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text:"Popular"),
+              SizedBox(Width: Dimensions.width10,),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: BigText(text: ".", color:Colors.black26),
+              ),
+              SizedBox(width: Dimensions.width10,)
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SmallText(text: "Food pairing",),
+              ),
+            ],
+          ),
+        ),
+        //List of food and images
+        Container(
+          height: 900,
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            //shrinkWrap: true,
+          itemCount:10,
+          itemBuilder: (context, index){
+            return Container(
+              margin: EdgeInsets.only(left: Dimensions.width20 right:Dimensions.width20, bottom: Dimensions.height10),
+              child:Row(
+                children:[
+                  //image section
+                  Container(
+                    width: 120,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
+                      color:Colors.white30,
+                      image:DecorationImage(
+                        fit: BoxFit.cover,
+                        image:AssetImage(
+                          "assests/image/food0.png"//____________________________CHANGE THE ADDRESS FOR THIS IMAGE______________________________
+                        )
+                      )
+                    ),
+                  )
+                  //text container
+                ],
+              )
+            );
+        })//ListView.builder
+        )
       ],
-    );
+    );//Column
   }
 
   Widget _buildPageItem(int index) {
@@ -98,9 +153,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           Container(
             height: Dimensions.pageViewContainer,
-            margin: EdgeInsets.only(left: 10, right: 10),
+            margin: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(Dimensions.raidus30),
                 color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
                 image: DecorationImage(
                     fit: BoxFit.cover,
@@ -111,9 +166,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: Dimensions.pageViewTextContainer,
-              margin: EdgeInsets.only(left: 30, right: 30, bottom: 30),
+              margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height30),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
