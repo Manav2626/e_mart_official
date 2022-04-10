@@ -124,13 +124,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     BoxShadow(color: Colors.white, offset: Offset(5, 0)),
                   ]),
               child: Container(
-                padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+                padding: EdgeInsets.only(top: Dimensions.height15, left: 15, right: 15),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(text: "Chinese Side"),
                       SizedBox(
-                        height: 10,
+                        height: Dimensions.height10,
                       ),
                       Row(
                         children: [
@@ -158,7 +158,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: Dimensions.height20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
