@@ -1,9 +1,11 @@
-import 'package:e_mart/home/food_page_body.dart';
+import 'package:e_mart/pages/home/food_page_body.dart';
 import 'package:e_mart/utils/colors.dart';
 import 'package:e_mart/widgets/big_text.dart';
 import 'package:e_mart/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 import 'package:e_mart/utils/dimensions.dart';
+
+import 'food_page_body.dart';
 
 
 
