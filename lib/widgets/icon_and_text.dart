@@ -1,6 +1,8 @@
 import 'package:e_mart/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../utils/dimensions.dart';
+
 class IconAndTExtWidget extends StatelessWidget {
   final IconData icon;
   final String text;

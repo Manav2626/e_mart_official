@@ -63,7 +63,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
           ),
-        )
+        ),
         SizedBox(height: Dimensions.height30,),
         Container(
           margin: EdgeInsets.only(left: Dimensions.width30),
@@ -71,12 +71,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               BigText(text:"Popular"),
-              SizedBox(Width: Dimensions.width10,),
+              SizedBox(width: Dimensions.width10,),
               Container(
                 margin: const EdgeInsets.only(bottom: 3),
                 child: BigText(text: ".", color:Colors.black26),
               ),
-              SizedBox(width: Dimensions.width10,)
+              SizedBox(width: Dimensions.width10,),
               Container(
                 margin: const EdgeInsets.only(bottom: 2),
                 child: SmallText(text: "Food pairing",),
@@ -93,7 +93,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           itemCount:10,
           itemBuilder: (context, index){
             return Container(
-              margin: EdgeInsets.only(left: Dimensions.width20 right:Dimensions.width20, bottom: Dimensions.height10),
+              margin: EdgeInsets.only(left: Dimensions.width20, right:Dimensions.width20, bottom: Dimensions.height10),
               child:Row(
                 children:[
                   //image section
@@ -106,7 +106,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       image:DecorationImage(
                         fit: BoxFit.cover,
                         image:AssetImage(
-                          "assests/image/food0.png"//____________________________CHANGE THE ADDRESS FOR THIS IMAGE______________________________
+                          "/Users/manav/Desktop/Docs/test/e_mart_official/lib/assets/image/food0.png"//____________________________CHANGE THE ADDRESS FOR THIS IMAGE______________________________
                         )
                       )
                     ),
