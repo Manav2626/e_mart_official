@@ -33,8 +33,19 @@ class PopularFoodDetail extends StatelessWidget {
                 AppIcon(icon: Icons.arrow_back_ios),
                 AppIcon(icon: Icons.shopping_cart_checkout_outlined),
               ],
-            ))
+            )),
+        Positioned(
+          left: 0,
+          right: 0,
+          top: Dimensions.popularFoodImgSize,
+          child: Container(
+            padding: EdgeInsets.only(left: Dimensions.width20, right: dimensions.width20, top: Dimensions.height20),
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
+            color: Colors.white
+          )
+        )
       ],
-    ));
+    ),
+    );
   }
 }
