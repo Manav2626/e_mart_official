@@ -4,6 +4,7 @@ import 'package:e_mart/widgets/app_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/icon_and_text.dart';
@@ -18,6 +19,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          //bg image
           Positioned(
               left: 0,
               right: 0,
@@ -30,6 +32,7 @@ class PopularFoodDetail extends StatelessWidget {
                         image: AssetImage(
                             "/Users/manav/Desktop/Docs/test/e_mart_official/assets/image/food0.png"))),
               )),
+          //icon widget
           Positioned(
               top: Dimensions.height45,
               left: Dimensions.width20,
@@ -41,6 +44,7 @@ class PopularFoodDetail extends StatelessWidget {
                   AppIcon(icon: Icons.shopping_cart_checkout_outlined),
                 ],
               )),
+          //introduction of food
           Positioned(
               left: 0,
               right: 0,
@@ -65,10 +69,12 @@ class PopularFoodDetail extends StatelessWidget {
                       BigText(text: "Introduce")
                     ]),
               )),
+              //expandable text widget
         ],
       ),
-      bottomNavigationBar: Container(
-        height: 120,
+      bottomNavigationBar: 
+      Container(
+        height: Dimensions.bottomHeightbar,
         padding: EdgeInsets.only(
             top: Dimensions.height30,
             bottom: Dimensions.height30,
@@ -81,21 +87,47 @@ class PopularFoodDetail extends StatelessWidget {
               topRight: Radius.circular(Dimensions.radius20 * 2),
             )),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
+              padding: EdgeInsets.only(
+                  top: Dimensions.height10,
+                  bottom: Dimensions.height10,
+                  left: Dimensions.width20,
+                  right: Dimensions.width20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius20),
                   color: Colors.white),
               child: Row(
                 children: [
                   Icon(Icons.remove, color: Appcolors.signColor),
+                  SizedBox(
+                    width: Dimensions.width10 / 2,
+                  ),
                   BigText(text: "0"),
+                  SizedBox(
+                    width: Dimensions.width10 / 2,
+                  ),
                   Icon(
                     Icons.add,
                     color: Appcolors.signColor,
                   )
                 ],
               ),
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                  top: Dimensions.height10,
+                  bottom: Dimensions.height10,
+                  left: Dimensions.width20,
+                  right: Dimensions.width20),
+              child: BigText(
+                text: "\$10 | Add to cart",
+                color: Colors.white,
+              ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
+                  color: Appcolors.mainColor),
             )
           ],
         ),
