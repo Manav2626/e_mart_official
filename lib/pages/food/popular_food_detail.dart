@@ -1,7 +1,13 @@
 import 'package:e_mart/utils/dimensions.dart';
+import 'package:e_mart/widgets/app_column.dart';
 import 'package:e_mart/widgets/app_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../utils/colors.dart';
+import '../../widgets/big_text.dart';
+import '../../widgets/icon_and_text.dart';
+import '../../widgets/small_text.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({Key? key}) : super(key: key);
@@ -9,6 +15,7 @@ class PopularFoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Positioned(
@@ -37,17 +44,61 @@ class PopularFoodDetail extends StatelessWidget {
           Positioned(
               left: 0,
               right: 0,
-              top: Dimensions.popularFoodImgSize,
+              bottom: 0,
+              top: Dimensions.popularFoodImgSize - 20,
               child: Container(
-                  padding: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      right: Dimensions.width20,
-                      top: Dimensions.height20),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  ),
-                  color: Colors.white))
+                padding: EdgeInsets.only(
+                    left: Dimensions.width20,
+                    right: Dimensions.width20,
+                    top: Dimensions.height20),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(Dimensions.radius20),
+                      topLeft: Radius.circular(Dimensions.radius20),
+                    ),
+                    color: Colors.white),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppColumn(text: "Chinese Side"),
+                      SizedBox(height: Dimensions.height20),
+                      BigText(text: "Introduce")
+                    ]),
+              )),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 120,
+        padding: EdgeInsets.only(
+            top: Dimensions.height30,
+            bottom: Dimensions.height30,
+            left: Dimensions.width20,
+            right: Dimensions.width20),
+        decoration: BoxDecoration(
+            color: Appcolors.buttonBackgroundColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(Dimensions.radius20 * 2),
+              topRight: Radius.circular(Dimensions.radius20 * 2),
+            )),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
+                  color: Colors.white),
+              child: Row(
+                children: [
+                  Icon(Icons.remove, color: Appcolors.signColor),
+                  BigText(text: "0"),
+                  Icon(
+                    Icons.add,
+                    color: Appcolors.signColor,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
