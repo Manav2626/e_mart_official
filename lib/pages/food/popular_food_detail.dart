@@ -1,9 +1,9 @@
 import 'package:e_mart/utils/dimensions.dart';
 import 'package:e_mart/widgets/app_column.dart';
 import 'package:e_mart/widgets/app_icon.dart';
+import 'package:e_mart/widgets/expandable_text_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
@@ -66,14 +66,20 @@ class PopularFoodDetail extends StatelessWidget {
                     children: [
                       AppColumn(text: "Chinese Side"),
                       SizedBox(height: Dimensions.height20),
-                      BigText(text: "Introduce")
+                      BigText(text: "Introduce"),
+                      SizedBox(height: Dimensions.height20),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: ExpandableTextWidget(
+                              text:
+                                  "The soil moisture sensor is one kind of sensor used to gauge the volumetric water within the soil. As the straight gravimetric dimension of soil moisture needs eliminating, drying, as well as sample weighting. These sensors measure the volumetric water content not directly with the help of some other rules of soil like dielectric constant, electrical resistance, otherwise interaction with neutrons, and replacement of the moisture content"),
+                        ),
+                      )
                     ]),
               )),
-              //expandable text widget
         ],
       ),
-      bottomNavigationBar: 
-      Container(
+      bottomNavigationBar: Container(
         height: Dimensions.bottomHeightbar,
         padding: EdgeInsets.only(
             top: Dimensions.height30,
