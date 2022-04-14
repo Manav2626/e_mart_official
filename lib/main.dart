@@ -1,4 +1,5 @@
 import 'package:e_mart/pages/food/popular_food_detail.dart';
+import 'package:e_mart/pages/food/recommended_food_detail.dart';
 import 'package:e_mart/pages/home/food_page_body.dart';
 import 'package:e_mart/pages/home/main_food_page.dart';
 import 'package:flutter/material.dart';
