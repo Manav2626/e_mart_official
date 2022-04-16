@@ -8,10 +8,10 @@ class PopularProductController extends GetxService {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
   List<dynamic> _popularProductList = [];
-  List<dynamic> get popularProductList =>_popularProductList;
+  List<dynamic> get popularProductList => _popularProductList;
 
-  bool _isLoaded =false;
-  bool get isLoaded=>_isLoaded;
+  bool _isLoaded = false;
+  bool get isLoaded => _isLoaded;
 
   Future<void> getPopularPrductList() async {
     Response response = await popularProductRepo.getPopularProductList();
@@ -20,11 +20,9 @@ class PopularProductController extends GetxService {
       _popularProductList = [];
       _popularProductList.addAll(Product.fromJson(response.body).products);
       //print(_popularProductList);
-      _isLoaded=true;
+      _isLoaded = true;
       update();
-    } else {
-
-    }
+    } else {}
   }
 
 //aa nichenu error kadhva add karyu chh

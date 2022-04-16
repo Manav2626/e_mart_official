@@ -3,12 +3,12 @@ class Product {
   int? _typeId;
   int? _offset;
   late List<ProductModel>? _products;
-  List<ProductModel> get products=>_products;
+  List<ProductModel> get products=>products;
 
   Product({required totalSize, required typeId, required offset, required products}){
-    this. totalSize=totalSize;
-    this. typeId=typeId;
-    this. offset=offset;
+    this. _totalSize=totalSize;
+    this. _typeId=typeId;
+    this. _offset=offset;
     this._products=products;
   }
 

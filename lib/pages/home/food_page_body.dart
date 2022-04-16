@@ -10,6 +10,9 @@ import 'package:e_mart/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../controllers/popular_product_controller.dart';
+import '../../models/products_model.dart';
+import '../../utils/app_constants.dart';
 
 class FoodPageBody extends StatefulWidget {
   FoodPageBody({Key? key}) : super(key: key);
@@ -44,33 +47,38 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Column(
       children: [
         //slider section
-        GetBuilder<PopularProductController>(builder:(popularProducts){
-          return popularProduct.isLoaded>Container(
-          // color: Colors.redAccent,
-          height: Dimensions.pageView,
-          child: PageView.builder(
-              controller: pageController,
-              itemCount: popularProducts.popularProductList.length,
-              itemBuilder: (context, position) {
-                return _buildPageItem(position, popularProducts.popularProductList[position]);
-              }),
-        ):CircularProgressIndicator(
-          color: Appcolors.mainColor,
-        );
+        GetBuilder<PopularProductController>(builder:(popularProducts) {
+          return popularProduct.isLoaded >
+              Container(
+                // color: Colors.redAccent,
+                height: Dimensions.pageView,
+                child: PageView.builder(
+                    controller: pageController,
+                    itemCount: popularProducts.popularProductList.length,
+                    itemBuilder: (context, position) {
+                      return _buildPageItem(position,
+                          popularProducts.popularProductList[position]);
+                    }),
+              );
+          CircularProgressIndicator(
+            color: Appcolors.mainColor,
+          );
         }),
         //dots
-        GetBuilder<PopularProductController>(builder: (popularProducts){
+        GetBuilder<PopularProductController>(builder: (popularProducts) {
           return new DotsIndicator(
-          dotsCount: popularProducts.popularProductList.isEmpty?1:popularProducts.popularProductList.length,
-          position: _currPageValue,
-          decorator: DotsDecorator(
-            activeColor: Appcolors.mainColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
-            activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)),
-          ),
-        );
+            dotsCount: popularProducts.popularProductList.isEmpty
+                ? 1
+                : popularProducts.popularProductList.length,
+            position: _currPageValue,
+            decorator: DotsDecorator(
+              activeColor: Appcolors.mainColor,
+              size: const Size.square(9.0),
+              activeSize: const Size(18.0, 9.0),
+              activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0)),
+            ),
+          );
         }),
         SizedBox(
           height: Dimensions.height30,
@@ -219,8 +227,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
                 image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                        AppConstants.BASE_URL+"/uploads/"popularProduct.img!))),
+                    image: NetworkImage(AppConstants.BASE_URL +
+                        "/uploads/" +
+                        popularProduct.img!))),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -244,9 +253,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               child: Container(
                 padding: EdgeInsets.only(
                     top: Dimensions.height15, left: 15, right: 15),
-                child: AppColumn(
-                  text: popularProduct.name!
-                ),
+                child: AppColumn(text: popularProduct.name!),
               ),
             ),
           ),

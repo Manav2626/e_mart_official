@@ -14,7 +14,7 @@ class RecommendedProductController extends GetxService {
   bool get isLoaded=>_isLoaded;
 
   Future<void> getRecommendedPrductList() async {
-    Response response = await popularProductRepo.getRecommendedProductList();
+    Response response = await recommendedProductRepo.getRecommendedProductList();
     if (response.statusCode == 200) {
       print("got products");
       _recommendedProductList = [];
