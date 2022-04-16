@@ -2,6 +2,8 @@ import 'package:e_mart/data/repository/popular_product_repo.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../models/products_model.dart';
+
 class PopularProductController extends GetxService {
   final PopularProductRepo popularProductRepo;
   PopularProductController({required this.popularProductRepo});
@@ -11,8 +13,9 @@ class PopularProductController extends GetxService {
   Future<void> getPopularPrductList() async {
     Response response = await popularProductRepo.getPopularProductList();
     if (response.statusCode == 200) {
+
       _popularProductList = [];
-      // _popularProductList.addAll();
+      // _popularProductList.addAll(Product.fromJson(response.body).products);
       update();
     } else {
 

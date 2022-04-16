@@ -1,3 +1,4 @@
+import 'package:e_mart/controllers/popular_product_controller.dart';
 import 'package:e_mart/pages/food/popular_food_detail.dart';
 import 'package:e_mart/pages/food/recommended_food_detail.dart';
 import 'package:e_mart/pages/home/food_page_body.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.find<PopularProductController>().getPopularPrductList();
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
