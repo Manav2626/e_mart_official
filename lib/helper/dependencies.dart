@@ -1,4 +1,4 @@
-import 'package:e_mart/controllers/popular_product_controller.dart';
+import 'package:e_mart/controllers/recommended_product_controller.dart';
 import 'package:e_mart/data/api/api_client.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +10,9 @@ Future<void> init() async {
 
 //repos
   Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
+  Get.lazyPut(() => RecommendedProductRepo(apiClient: Get.find()));
 
   //controllers
   Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));
+  Get.lazyPut(() => RecommendedProductController(recommendedProductRepo: Get.find()));
 }
