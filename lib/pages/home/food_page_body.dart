@@ -109,7 +109,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
         //List of food and images
-        ListView.builder(
+        GetBuilder<RecommendedProductController?(builder :(recommendedProduct){
+          return recommendedProduct.isLoaded?ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 10,
@@ -132,7 +133,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: AssetImage(
-                                    "/Users/manav/Desktop/Docs/test/e_mart_official/lib/assets/image/food0.png" //____________________________CHANGE THE ADDRESS FOR THIS IMAGE______________________________
+                                    "/Users/manav/Desktop/Docs/test/e_mart_official/lib/assets/image/food0.png" 
                                     ))),
                       ),
                       //text container
@@ -183,7 +184,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                       )
                     ],
                   ));
-            }) //ListView.builder
+            }):CircularProgressIndicator(
+              color: AppColors.mainColor,
+            );
+            //ListView.builder
+        })
       ],
     ); //Column
   }
