@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:e_mart/utils/colors.dart';
 import 'package:e_mart/utils/dimensions.dart';
