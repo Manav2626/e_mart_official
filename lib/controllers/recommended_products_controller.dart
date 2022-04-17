@@ -1,32 +1,25 @@
-import 'package:e_mart/data/repository/recommended_product_repo.dart';
 import 'package:get/get_connect/http/src/response/response.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../data/repository/recommended_product_repo.dart';
 import '../models/products_model.dart';
 
-class RecommendedProductController extends GetxService {
+class RecommendedProductController extends GetxController {
   final RecommendedProductRepo recommendedProductRepo;
   RecommendedProductController({required this.recommendedProductRepo});
   List<dynamic> _recommendedProductList = [];
-  List<dynamic> get recommendedProductList =>_recommendedProductList;
+  List<dynamic> get recommendedProductList => _recommendedProductList;
 
-  bool _isLoaded =false;
-  bool get isLoaded=>_isLoaded;
+  bool _isLoaded = false;
+  bool get isLoaded => _isLoaded;
 
-  Future<void> getRecommendedPrductList() async {
+  Future<void> getrecommendedProductList() async {
     Response response = await recommendedProductRepo.getRecommendedProductList();
     if (response.statusCode == 200) {
-      print("got products recommended");
       _recommendedProductList = [];
       _recommendedProductList.addAll(Product.fromJson(response.body).products);
-      //print(_popularProductList);
-      _isLoaded=true;
+      _isLoaded = true;
       update();
-    } else {
-      print("could not get products recommended");
-    }
+    } else {}
   }
-
-//aa nichenu error kadhva add karyu chh
-  void update() {}
 }
